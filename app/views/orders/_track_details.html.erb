@@ -1,0 +1,24 @@
+<%if order%>
+	<table>
+		<tr>
+			<th>Order ID</th>
+			<th>Sender Name</th>
+			<th>Receiver Name</th>
+			<th>Payment option</th>
+			<th>Service type</th>
+			<th>Status</th>
+			<th>Weight</th>
+		</tr>
+		<tr>
+			<td><%=order.id%></td>
+			<td><%=order.sender['full_name']%></td>
+			<td><%=order.receiver['full_name']%></td>
+			<td><%=order.payment_option.humanize%></td>
+			<td><%=order.service_type.humanize%></td>
+			<td><%=order.status.humanize%></td>
+			<td><%=order.weight%></td>
+		</tr>
+	</table>
+<%else%>
+	No such order placed
+<%end%>

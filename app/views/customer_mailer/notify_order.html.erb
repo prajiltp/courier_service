@@ -1,0 +1,36 @@
+<html>
+<body>
+<table>
+    <tbody>
+    <tr style='height: 20px; background-color: #ffc962;'>
+        <td style='border-bottom: 1px solid black;'>
+            <h2 style='padding-left: 5px;'>ORDER</h2>
+        </td>
+    </tr>
+    <tr>
+        <td style='padding: 5px;'>
+            <div style='font-size: 14px; line-height: 28px;'>Hello,</div><br/>
+            <div style='font-size: 14px; line-height: 28px;'>The item is shipped:</div>
+            <div style='font-size: 14px; line-height: 28px;'>
+                <ul>
+                    <li>Track ID: <%= @order.id %></li>
+                    <li>From: <%= @sender.detailed_address %></li>
+                    <li>To: <%= @receiver.detailed_address %></li>
+                    <li>Order Status: <%= @order.status %></li>
+                    <li>Deliver Type: <%= @order.service_type %></li>
+                    <li>Payment Type: <%= @order.payment_option %></li>
+                    <li>Weight: <%= @order.weight %> </li>
+                    <li>Cost: <%= @order.charge %></li>
+                </ul>
+            </div>
+            <div style='font-size: 14px; line-height: 28px;'>The order can be trackedd at <a target='_blank' href='<%= root_path %>'><%= @customer_service_url %></a>.</div>
+        </td>
+    </tr>
+    <hr/>
+    <tr>
+        <td style='font-size: 10px;'>This is a system generated message, please do not reply.</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

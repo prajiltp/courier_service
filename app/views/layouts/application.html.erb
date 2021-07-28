@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <div id="wrapper">
+      <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
+        <div class="top-info">
+          <!-- <%= link_to 'Home', root_path %> -->
+          <% if current_user %>
+            <!-- <%= current_user.email %> -->
+            <%= button_to 'logout', destroy_user_session_path, method: :delete, :id => 'logout', class: 'btn btn-KZ square-btn-adjust' %>
+          <% else %>
+            <%= button_to 'sign in', new_user_session_path %>
+          <% end %>
+        </div>
+      </nav>
+    </div>
+    <div id="error">
+      <%= flash[:error] %>
+    </div>
     <%= yield %>
   </body>
 </html>

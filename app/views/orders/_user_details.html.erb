@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <td><%= label_tag "order[#{user_type}][full_name]", 'Full name'%></td>
+    <td><%= text_field_tag "order[#{user_type}][full_name]", order.send("#{user_type}").try(:[],'full_name')%></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "order[#{user_type}][email]", 'Email'%></td>
+    <td><%= email_field_tag "order[#{user_type}][email]", order.send("#{user_type}").try(:[], 'email')%></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "order[#{user_type}][address]", 'Address'%></td>
+    <td><%= text_area_tag "order[#{user_type}][address]", order.send("#{user_type}").try(:[], 'address')%></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "order[#{user_type}][mobile]", 'Mobile Number'%></td>
+    <td><%= telephone_field_tag "order[#{user_type}][mobile]", order.send("#{user_type}").try(:[], 'mobile')%></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "order[#{user_type}][pin]", 'PIN'%></td>
+    <td><%= number_field_tag "order[#{user_type}][pin]", order.send("#{user_type}").try(:[], 'pin')%></td>
+  </tr>
+</table>

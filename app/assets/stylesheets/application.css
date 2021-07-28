@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import "layout";
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');

@@ -1,0 +1,40 @@
+<%if @order.errors.present?%>
+	Please address following errors:
+	</br>
+	<%@order.errors.full_messages.each do |msg|%>
+		<p><%=msg%></p>
+	<%end%>
+<%end%>
+<%=form_with model: @order do |form|%>
+  <p>Sender Details</p>
+  <%=render partial: 'user_details', locals: {user_type: 'sender', order: @order}%>
+  <p>Receiver Details</p>
+  <%=render partial: 'user_details', locals: {user_type: 'receiver', order: @order}%>
+  </br>
+  SHIPPING DETAILS
+  </br>
+  <table>
+    <tr>
+      <td>Wieight</td>
+      <td><%=form.number_field :weight, step: :any%></td>
+    </tr>
+    <tr>
+      <td>Cost</td>
+      <td><%=form.number_field :charge%></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td><%=form.select :status, options_for_select(Order.statuses.keys)%></td>
+    </tr>
+    <tr>
+      <td>Payment option</td>
+      <td><%=form.select :payment_option, options_for_select(Order.payment_options.keys)%></td>
+    </tr>
+    <tr>
+      <td>Service type</td>
+      <td><%=form.select :service_type, options_for_select(Order.service_types.keys)%></td>
+    </tr>
+  </table>
+  </br>
+  <%=form.submit%>
+<%end%>
